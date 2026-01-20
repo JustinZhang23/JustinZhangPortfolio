@@ -1,0 +1,29 @@
+#p5-sketch {
+  max-width: 600px;       /* limit the width of the box */
+  margin: 20px auto;      /* center the box horizontally and add spacing */
+  padding: 15px;          /* inner spacing */
+  width: 90%;   /* make canvas container fit the project box */
+  height: 90%;  /* adjust height dynamically */
+}
+
+
+#p5-sketch {
+	width: 100%;
+	position: relative; 
+	display: flex;
+	justify-content: center; 
+	box-sizing: border-box;
+	padding: 8px 0;
+}
+
+#p5-sketch canvas {
+	max-width: 100%;
+	height: auto; 
+	display: block;
+}
+
+#p5-sketch select {
+	position: absolute;
+	z-index: 10;
+}
+

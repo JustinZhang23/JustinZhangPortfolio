@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Zhang Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Justin Zhang Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Justin Zhang, a passionate developer and designer. Welcome to my portfolio website where you can
+                explore my projects and get to know more about me.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project 1: Interactive U.S. State Income & Demographics Visualization</h3>
+                <p>
+                    This project is a dynamic data visualization built with p5.js that displays median household income and demographic distributions for all 50 U.S. states. 
+                    Users can select a state from a dropdown menu to view an interactive bar chart of median incomes by race and a pie chart showing the racial composition. 
+                    The visualization automatically resizes to fit the browser window, ensuring a responsive and user-friendly experience.
+                </p>
+
+                <!-- Embedding p5.js sketch -->
+                <div id="p5-sketch"></div>
+            </div>
+            <div class="project">
+                <h3>Project 2: Web Development</h3>
+                <p>A portfolio website showcasing my skills in HTML, CSS, and JavaScript.</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to get in touch, feel free to reach out via email at
+                <a href="mailto:justinzhang0905@gmail.com">justinzhang0905@gmail.com</a>
+                or connect with me on LinkedIn <a href="https://www.linkedin.com/in/jzhang76" target="_blank">here</a>.
+                </p>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Justin Zhang. All rights reserved.</p>
+    </footer>
+
+    <!-- p5.js library -->
+    <script src="js/p5.sound.min.js"></script>
+
+    <!-- Your p5 sketch -->
+    <script src="js/sketch.js"></script>
+    </body>
+</html>
