@@ -1,29 +1,153 @@
-#p5-sketch {
-  max-width: 600px;       /* limit the width of the box */
-  margin: 20px auto;      /* center the box horizontally and add spacing */
-  padding: 15px;          /* inner spacing */
-  width: 90%;   /* make canvas container fit the project box */
-  height: 90%;  /* adjust height dynamically */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
-#p5-sketch {
-	width: 100%;
-	position: relative; 
-	display: flex;
-	justify-content: center; 
-	box-sizing: border-box;
-	padding: 8px 0;
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fb;
+  color: #1f2933;
 }
 
-#p5-sketch canvas {
-	max-width: 100%;
-	height: auto; 
-	display: block;
+header {
+  width: 100%;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-#p5-sketch select {
-	position: absolute;
-	z-index: 10;
+header h1 {
+  font-size: 1.5rem;
 }
 
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #2563eb;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.project {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.project-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%; /* take full width of project card */
+}
+
+.project-demo #demo1 {
+  width: 100%;            /* fill the width of the parent project card */
+  max-width: 600px;       /* optional: don’t grow too wide */
+  min-width: 300px;       /* optional: don’t shrink too small */
+  aspect-ratio: 16/9;     /* keeps height proportional */
+  background: #f1f5f9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.demo-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.demo-btn:hover {
+  background-color: #1e40af;
+}
+
+.demo-content {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f1f5f9;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  background: #111827;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .project {
+    flex-direction: column;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}

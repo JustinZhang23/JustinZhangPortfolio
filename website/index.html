@@ -25,24 +25,40 @@
 
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I'm Justin Zhang, a passionate developer and designer. Welcome to my portfolio website where you can
+            <p>Hello! I'm Justin Zhang, a passionate developer and designer. Welcome to my portfolio website where you
+                can
                 explore my projects and get to know more about me.</p>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
             <div class="project">
-                <h3>Project 1: Interactive U.S. State Income & Demographics Visualization</h3>
-                <p>
-                    This project is a dynamic data visualization built with p5.js that displays median household income and demographic distributions for all 50 U.S. states. 
-                    Users can select a state from a dropdown menu to view an interactive bar chart of median incomes by race and a pie chart showing the racial composition. 
-                    The visualization automatically resizes to fit the browser window, ensuring a responsive and user-friendly experience.
-                </p>
 
-                <!-- Embedding p5.js sketch -->
-                <div id="p5-sketch"></div>
+                <!-- LEFT: Text -->
+                <div class="project-text">
+                    <h3>Interactive US State Income & Demographics Visualization</h3>
+                    <p>
+                        This project is a dynamic data visualization built with p5.js that displays
+                        median household income and demographic distributions for all 50 U.S. states.
+                        Users can select a state to view interactive charts that update in real time.
+                    </p>
+                </div>
+
+                <!-- RIGHT: Demo -->
+                <div class="project-demo">
+                    <button class="demo-btn" onclick="toggleDemo('demo1')">
+                        Show Demo
+                    </button>
+
+                    <div class="demo-content" id="demo1">
+                        <div id="p5-sketch"></div>
+                    </div>
+                </div>
+
             </div>
+
             <div class="project">
+
                 <h3>Project 2: Web Development</h3>
                 <p>A portfolio website showcasing my skills in HTML, CSS, and JavaScript.</p>
             </div>
@@ -52,7 +68,7 @@
             <p>If you'd like to get in touch, feel free to reach out via email at
                 <a href="mailto:justinzhang0905@gmail.com">justinzhang0905@gmail.com</a>
                 or connect with me on LinkedIn <a href="https://www.linkedin.com/in/jzhang76" target="_blank">here</a>.
-                </p>
+            </p>
             </p>
         </section>
     </main>
@@ -66,5 +82,27 @@
 
     <!-- Your p5 sketch -->
     <script src="js/sketch.js"></script>
-    </body>
+
+    <script>
+        let demoInitialized = false;
+
+        function toggleDemo(id) {
+            const demo = document.getElementById(id);
+            const isHidden = demo.style.display === "" || demo.style.display === "none";
+            demo.style.display = isHidden ? "flex" : "none";
+
+            if (isHidden && !demoInitialized) {
+                demoInitialized = true;
+                // wait a tiny moment for layout to update
+                setTimeout(setup, 50);
+            } else if (isHidden && demoInitialized) {
+                handleResize(); // resize/redraw if already initialized
+            }
+        }
+
+    </script>
+
+
+</body>
+
 </html>

@@ -49,6 +49,7 @@ function setup() {
   background(200);
 
   selectState = createSelect();
+  selectState.parent("p5-sketch");
 
   title();
   dropDown();
