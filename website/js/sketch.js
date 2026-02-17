@@ -12,6 +12,7 @@ let distArray = Array(50);
 let stateIncomeArray = [];
 let stateDistArray = [];
 let resizeTimeout = false;
+let initialized = false;
 
 let colors = [
     [255, 0, 0],
@@ -33,6 +34,10 @@ function preload() {
 
 //setup function to initialize canvas and UI elements
 function setup() {
+
+  if(initialized) return;   // ⭐ prevents duplication
+  initialized = true;
+
   container = select('#p5-sketch');
   let containerWidth;
   if (container && container.elt && container.elt.clientWidth) {
@@ -50,15 +55,23 @@ function setup() {
 
   selectState = createSelect();
   selectState.parent("p5-sketch");
+  selectState.style('margin-top', '8px');
+
 
   title();
   dropDown();
   stateArraySetup();
   getArrays();
+  noLoop();
 }
 
 //draw function to update visualizations based on selected state
 function draw() {
+  renderNow();
+}
+
+//function to render visualizations immediately on state change
+function renderNow() {
   let state = selectState.value();
   if (state !== selectedState) {
     selectedState = state;
@@ -85,13 +98,19 @@ function dropDown(){
   textSize(canvasSize/30);
   textAlign(LEFT, TOP);
   text("Select a state below:", 0, 0);
+  let labelY = textAscent() + textDescent();
 
-  selectState.parent('p5-sketch');
-  let textHeight = textAscent() + textDescent();
-  selectState.position(0, textHeight + 5);
-  selectState.style('width', Math.min(Math.round(canvasSize * 0.25), windowWidth*0.7) + 'px');
-  selectState.style('font-size', Math.round(canvasSize / 30) + 'px');
   pop();
+  let selectX = cnv.position().x;
+  let selectY = cnv.position().y + labelY/2;
+
+  selectState.position(selectX, selectY);
+
+  selectState.style(
+    'width',
+    Math.min(Math.round(canvasSize * 0.25), windowWidth * 0.7) + 'px'
+  );
+  selectState.style('font-size', Math.round(canvasSize / 30) + 'px');
 }
 
 //function to setup state array and populate dropdown

@@ -11,6 +11,13 @@ body {
   color: #1f2933;
 }
 
+.last-updated {
+    font-size: 0.9rem;
+    color: gray;
+    text-align: left;
+}
+
+
 header {
   width: 100%;
   background: linear-gradient(135deg, #2563eb, #1e40af);
@@ -67,7 +74,7 @@ section h2 {
   border-radius: 16px;
   padding: 2rem;
   margin-top: 2rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -75,19 +82,18 @@ section h2 {
 }
 
 .project-demo {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
-  width: 100%; /* take full width of project card */
 }
 
 .project-demo #demo1 {
-  width: 100%;            /* fill the width of the parent project card */
-  max-width: 600px;       /* optional: don’t grow too wide */
-  min-width: 300px;       /* optional: don’t shrink too small */
-  aspect-ratio: 16/9;     /* keeps height proportional */
-  background: #f1f5f9;
+  width: 100%;
+  /* fill project card width */
+  max-width: 800px;
+  /* optional max width */
+  margin-top: 1rem;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -109,10 +115,26 @@ section h2 {
 
 .demo-content {
   display: none;
+  width: 100%;
+  max-width: 800px;
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 12px;
   background: #f1f5f9;
+}
+
+#p5-sketch {
+  width: 100%;
+}
+
+.project-gallery {
+  display: flex;
+  gap: 12px;
+}
+
+.project-gallery img {
+  width: 33%;
+  border-radius: 8px;
 }
 
 footer {
@@ -149,5 +171,12 @@ a:hover {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
 }

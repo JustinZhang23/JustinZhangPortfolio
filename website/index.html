@@ -22,29 +22,29 @@
     </header>
 
     <main>
-
         <section id="about">
             <h2>About Me</h2>
+            <p class="last-updated">Last updated: Feb 17, 2026</p>
             <p>Hello! I'm Justin Zhang, a passionate developer and designer. Welcome to my portfolio website where you
-                can
-                explore my projects and get to know more about me.</p>
+                can explore my previous projects and get to know more about me. This also gets to act as a project for
+                my HTML, CSS, and JavaScript skills.</p>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
             <div class="project">
 
-                <!-- LEFT: Text -->
+                <!-- Top: Text -->
                 <div class="project-text">
                     <h3>Interactive US State Income & Demographics Visualization</h3>
                     <p>
-                        This project is a dynamic data visualization built with p5.js that displays
-                        median household income and demographic distributions for all 50 U.S. states.
-                        Users can select a state to view interactive charts that update in real time.
+                        Hello! I'm Justin Zhang, a passionate developer and designer. Welcome to my portfolio website, 
+                        where you can explore my past projects and learn more about my experience and interests. This 
+                        site also serves as a showcase of my skills in HTML, CSS, and JavaScript.
                     </p>
                 </div>
 
-                <!-- RIGHT: Demo -->
+                <!-- Bottom: Demo -->
                 <div class="project-demo">
                     <button class="demo-btn" onclick="toggleDemo('demo1')">
                         Show Demo
@@ -58,14 +58,58 @@
             </div>
 
             <div class="project">
+                <h3>AI Mental Health Support Platform</h3>
 
-                <h3>Project 2: Web Development</h3>
-                <p>A portfolio website showcasing my skills in HTML, CSS, and JavaScript.</p>
+                <!-- IMAGE -->
+                <div class="project-gallery">
+                    <img src="images/meetShaetis.jpg" alt="AI Overview UI">
+                    <img src="images/shaetis.jpg" alt="AI UI">
+                    <img src="images/hackslu.jpg" alt="Website Footer">
+                </div>
+
+                <p>
+                    Built backend RESTful APIs and contributed to the integration of an AI-assisted mental health support platform that combines chatbot 
+                    guidance with professional consultation scheduling. Developed and connected frontend interfaces with backend services using JavaScript, 
+                    Node.js, Express, and Firebase, ensuring reliable data flow across the application. Addressed privacy considerations and supported ethical 
+                    AI interaction design while enabling smooth transitions between automated chatbot assistance and human consultation workflows.
+                </p>
+
+                <!-- DEVPOST LINK -->
+                <a href="https://devpost.com/software/hackslu-entry-sht" target="_blank" class="project-btn">
+                    View the project on Devpost
+                </a>
+
+
+
             </div>
+
+            <div class="project">
+                <h3>Project 3: Data Analysis</h3>
+                <p>A data analysis project using Python and Pandas and more to explore trends in a salary dataset.</p>
+
+                <!-- IMAGE -->
+                <div class="project-gallery">
+                    <img src="images/heatmap.png" alt="Heatmap Visualization">
+                    <img src="images/salary-year-model.png" alt="Salary vs Year Model">
+                    <img src="images/histograms.png" alt="Histograms Visualization">
+                </div>
+
+                <p>
+                    Parsed and analyzed a large dataset using Python and Pandas, uncovering key insights and trends. 
+                    Created visualizations with Matplotlib and Seaborn to effectively communicate findings. 
+                    Developed a Jupyter Notebook to document the analysis process and share results with stakeholders. 
+                    Found variables that were highly correlated with the salary, providing actionable insights for decision-making.
+                </p>
+
+                <!-- Google Slide LINK -->
+                <a href="https://docs.google.com/presentation/d/1grbhS9hCTYGMjmQPJ5HJDmY_Z9n18hFCn2sZpggNjTI/edit?usp=sharing" target="_blank" class="project-btn">
+                    View the project presentation and analysis slides.
+                </a>
+
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>If you'd like to get in touch, feel free to reach out via email at
+            <p>If you'd like to get in touch or have any questions, feel free to reach out via email at
                 <a href="mailto:justinzhang0905@gmail.com">justinzhang0905@gmail.com</a>
                 or connect with me on LinkedIn <a href="https://www.linkedin.com/in/jzhang76" target="_blank">here</a>.
             </p>
@@ -91,12 +135,19 @@
             const isHidden = demo.style.display === "" || demo.style.display === "none";
             demo.style.display = isHidden ? "flex" : "none";
 
-            if (isHidden && !demoInitialized) {
-                demoInitialized = true;
-                // wait a tiny moment for layout to update
-                setTimeout(setup, 50);
-            } else if (isHidden && demoInitialized) {
-                handleResize(); // resize/redraw if already initialized
+            if (isHidden) {
+
+                if (!demoInitialized) {
+                    demoInitialized = true;
+                }
+
+                requestAnimationFrame(() => {
+                    handleResize();
+                    loop();
+                });
+
+            } else {
+                noLoop();
             }
         }
 
