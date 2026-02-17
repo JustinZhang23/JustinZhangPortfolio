@@ -10,7 +10,6 @@ Welcome to the official portfolio website of **Justin Zhang**, showcasing projec
 - [Projects](#projects)  
 - [Contact](#contact)  
 - [Technologies](#technologies)  
-- [Setup](#setup)  
 
 ---
 
